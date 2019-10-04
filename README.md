@@ -20,7 +20,6 @@
 ### Association
 - belongs_to :user
 
-
 ## imgeテーブル
 |Column|Type|Options|
 |------|----|-------|
