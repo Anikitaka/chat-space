@@ -1,24 +1,51 @@
 # README
+# chat-spaceb DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
+### Association
+- has_many :comments
+- has_many :imge
 
-Things you may want to cover:
 
-* Ruby version
+## groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+|groupname|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
-* System dependencies
+## imgeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|imge|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- has_many :group_comments_imge　through: :imge
+- belongs_to :user
 
-* Configuration
 
-* Database creation
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## group_comments_imgeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foreign_key: true|
+|comments_id|integer|null: false, foreign_key: true|
+|imge_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :group
+- has_many :comments
+- has_many :imge
