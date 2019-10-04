@@ -20,6 +20,7 @@
 ### Association
 - belongs_to :user
 
+
 ## imgeテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -37,6 +38,7 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+
 
 ## group_comments_imgeテーブル
 |Column|Type|Options|
