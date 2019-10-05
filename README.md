@@ -10,13 +10,13 @@
 ### Association
  has_many :comments
  has_many :comments_group
- belongs_to :groop
+ 
 
 ## groopsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false|
 ### Association
  has_many :comments
  has_many :comments_group
@@ -28,12 +28,14 @@
 |users_id|integer|null: false, foreign_key: true|
 ### Association
  belongs_to :user
+ belongs_to :group
 
-## comments_groopテーブル
+## usesr_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
+|users_id|integer|null: false, foreign_key: true|
 |comments_id|integer|null: false, foreign_key: true|
 |groops_id|integer|null: false, foreign_key: true|
 ### Association
- has_many :comments
- has_many :groops
+ belongs_to :user
+ belongs_to :group
