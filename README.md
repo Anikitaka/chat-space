@@ -9,32 +9,30 @@
 |username|string|null: false|
 ### Association
  has_many :comments
- has_many :comments_group
  
 
-## groopsテーブル
+## grousテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
-|user_id|integer|null: false|
 ### Association
  has_many :comments
- has_many :comments_group
+ has_many :usesrs_group
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comments|text|null: false|
+|message|text|null: false|
 |users_id|integer|null: false, foreign_key: true|
+|groups_id|integer|null: false, foreign_key: true|
 ### Association
  belongs_to :user
  belongs_to :group
 
-## usesr_groupテーブル
+## usesrs_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |users_id|integer|null: false, foreign_key: true|
-|comments_id|integer|null: false, foreign_key: true|
 |groops_id|integer|null: false, foreign_key: true|
 ### Association
  belongs_to :user
