@@ -8,44 +8,32 @@
 |password|string|null: false|
 |username|string|null: false|
 ### Association
-- has_many :comments
-- has_many :imge
+ has_many :comments
+ has_many :comments_group
+ belongs_to :groop
 
-
-## groupテーブル
+## groopsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |groupname|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-
-## imgeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|imge|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- has_many :group_comments_imge　through: :imge
-- belongs_to :user
-
+ has_many :comments
+ has_many :comments_group
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|comments|text|null: false|
+|users_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
+ belongs_to :user
 
-
-## group_comments_imgeテーブル
+## comments_groopテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
 |comments_id|integer|null: false, foreign_key: true|
-|imge_id|integer|null: false, foreign_key: true|
+|groops_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :group
-- has_many :comments
-- has_many :imge
+ has_many :comments
+ has_many :groops
