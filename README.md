@@ -9,8 +9,8 @@
 |name|string|null: false ,index: true|
 ### Association
  has_many :comments
- has_many :usesrs_groups
- has_many :group,through: :usesrs_groups
+ has_many :users_groups
+ has_many :groups,through: :users_groups
 
 ## grousテーブル
 |Column|Type|Options|
@@ -18,8 +18,8 @@
 |name|string|null: false|
 ### Association
  has_many :comments
- has_many :usesrs_groups
- has_many :usesrs, through: :usesrs_groups
+ has_many :users_groups
+ has_many :users, through: :users_groups
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -32,7 +32,7 @@
  belongs_to :user
  belongs_to :group
 
-## usesrs_groupテーブル
+## users_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
