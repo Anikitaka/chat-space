@@ -6,46 +6,41 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+
+|name|string|null: false ,index: true|
 ### Association
-- has_many :comments
-- has_many :imge
+ has_many :comments
+ has_many :users_groups
+ has_many :groups,through: :users_groups
 
-
-## groupテーブル
+## grousテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 ### Association
-- belongs_to :user
-
-## imgeテーブル
-|Column|Type|Options|
-|------|----|-------|
-|imge|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-### Association
-- has_many :group_comments_imge　through: :imge
-- belongs_to :user
+ has_many :comments
+ has_many :users_groups
+ has_many :users, through: :users_groups
 
 
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+
+|text|text|
+|image|string|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
+ belongs_to :user
+ belongs_to :group
 
-
-## group_comments_imgeテーブル
+## users_groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|comments_id|integer|null: false, foreign_key: true|
-|imge_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :group
-- has_many :comments
-- has_many :imge
+ belongs_to :user
+ belongs_to :group
+
