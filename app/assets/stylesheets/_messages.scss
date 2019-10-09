@@ -1,0 +1,131 @@
+.main{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  float: left;
+  color: #000;
+  
+  &__header{
+   height: 100px;
+   padding: 0 40px;
+   display: flex;
+   justify-content: space-between;
+   border-bottom: solid 1px #eee;
+   overflow: scroll;
+  }
+ &__header_left_box{
+   margin-top: 35px;
+ }
+ &__header_left_box-group{
+   font-size: 20px;
+   margin-bottom: 15px;
+ }
+ &__header_left_box-member{
+   font-size: 12px;
+   display: flex;
+   color: #999999;
+ }
+ &__header_left_box-member-list{
+  font-size: 12px;
+  display: flex;
+  color: #999999;
+ }
+ &__header_edit-btn{
+   height: 40px;
+   line-height: 40px;
+   padding: 0 20px;
+   margin-top:30px;
+   border: solid 1px #38aef0;
+   position: absolute;
+   right:40px;
+   color: #38aef0;
+ }
+}
+ .message{
+  height: calc(100vh - 280px);
+  width: calc(100vw - 380px);
+  padding: 46px 40px;
+  background-color: #fafafa;
+  overflow: scroll;
+  position: absolute;
+   top:100px;
+   left:300px;
+   
+   &__user{
+    padding-bottom: 40px;
+   }
+   &__user_info{
+    display: flex;
+    margin-bottom: 10px;
+   }
+   &__user_info-name{
+     color: #434a54;
+     font-size: 16px;
+     font-weight: bold;
+   }
+   &__user_info-data{
+     color: #999999;
+     font-size: 12px;
+     margin-left: 10px;
+   }
+    &__user_info-text{
+      color: #434a54;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+}
+.footer{
+  height: 90px;
+  width: calc(100vw - 380px);
+  padding: 0px 50px;
+  background-color: #ddd;
+  position: absolute;
+   top:700px;
+   left:300px;
+   
+   &__comment{
+    height: 90px;
+    display: flex;
+    color: #434a54;
+    box-sizing: border-box;
+    padding: 20px 40px ;
+
+    }
+    &__comment_box{
+    height: 50px;
+    width: calc(100% - 40px); ;
+    padding: 0 40px 0 25px;
+    color: #434a54;
+    background-color: #fafafa;
+    
+    }
+    &__comment_box-input{
+      height: 50px;
+      position: relative;
+      
+      background-color: #fafafa;
+    }
+    
+    &__comment_box-image{
+      font-size: 1.3rem;
+      position: absolute;
+     top: 30px;
+     right: 170px;
+    }
+    &__comment_submit-btn{
+     height: 50px;
+     line-height: 50px;
+     padding: 0 30px;
+     margin-top:20px;
+     background-color: #38aef0;
+     border: solid 1px #38aef0;
+     color:  #fafafa;
+     position: absolute;
+     top: 0px;
+     right: 40px;
+    }
+    
+    
+    
+
+}
+ 
