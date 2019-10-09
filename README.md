@@ -6,6 +6,7 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
+
 |name|string|null: false ,index: true|
 ### Association
  has_many :comments
@@ -21,9 +22,11 @@
  has_many :users_groups
  has_many :users, through: :users_groups
 
+
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
+
 |text|text|
 |image|string|
 |user|references|null: false, foreign_key: true|
@@ -40,3 +43,4 @@
 ### Association
  belongs_to :user
  belongs_to :group
+
