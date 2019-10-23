@@ -4,6 +4,7 @@ $(function() {
     var search_list = $("#user-search-result");
     var selected_list = $("#chat-group-users");
 
+ 
     function appendList(user) {  //検索結果の表示
       var html = `<div class="chat-group-user clearfix search" id="${ user.id }_search">
                     <p class="chat-group-user__name">${ user.name }</p>
@@ -11,6 +12,7 @@ $(function() {
                   </div>`
       search_list.append(html)
     }
+
 
     function appendUser(user) {  //チャットメンバーの表示
       var html = `<div class='chat-group-user clearfix js-chat-member' id='${ user.id }_list' >
@@ -27,6 +29,7 @@ $(function() {
     }
 
     $("#user-search-field").on("keyup", function() {
+
       var input = $("#user-search-field").val();  //検索フォーム入力内容を取得
       
       $.ajax({
@@ -41,6 +44,7 @@ $(function() {
         if (users.length !== 0) {
           users.forEach(function(user) {
             appendList(user);
+  
             //検索リストで追加ボタンがクリックされたとき
             $(".chat-group-user.clearfix.search").on("click", `#${user.id}_add`, function() {  //ajaxで後から追加された要素にもイベントを発火させる際の記述方法
               appendUser(user);
@@ -57,6 +61,7 @@ $(function() {
         alert('ユーザー検索に失敗しました');
       })
     });
+
 
     //メンバーリストで削除ボタンがクリックされたとき
     $("#chat-group-users").on("click", ".js-remove-btn", function() {
