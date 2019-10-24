@@ -67,3 +67,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
+gem 'fog-aws'
+
+#arn:aws:iam::324331003923:user/Tweet
