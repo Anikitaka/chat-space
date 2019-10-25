@@ -1,24 +1,26 @@
 $(function(){ 
   function buildHTML(message){
-    var img = (message.image.url == null)? `</p>`:`<img src ="${ message.image.url }"></p>`;
-    var html = `<div class="message" data-id="${message.id}">
+    var content = message.content ? `${ message.content }` : "";
+    var image = message.image.url ? `<img class="message__image" src="${message.image.url}">`: "";
+
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
-                    ${message.user_name}
+                      ${message.user_name}
                     </div>
                     <div class="upper-message__date">
-                    ${message.created_at}
+                      ${message.created_at}
                     </div>
                   </div>
                   <div class="lower-message">
                     <p class="lower-message__content">
-                    ${message.content}
-                    </p>
-                    <p class="lower-message__image" >
-                    ${ img }
+                      ${content}
                     </p>
                   </div>
-                </div>`
+                  <div>
+                  ${image}
+                  </div>
+              `
     return html;
   }
  
@@ -41,8 +43,7 @@ $(function(){
       $('.messages').append(html);
       $('.new_message')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      $('.form__submit').prop('disabled', false);
-    })
+   })
 
     .fail(function(){
       alert('error');
@@ -67,8 +68,9 @@ $(function(){
         messages.forEach(function (message) {
           insertHTML = buildHTML(message); 
           $('.messages').append(insertHTML);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         })
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        
       })
       .fail(function () {
         alert('自動更新に失敗しました');//ダメだったらアラートを出す
@@ -76,4 +78,4 @@ $(function(){
     }
   };
   setInterval(reloadMessages, 5000);
-  });
+});
