@@ -1,25 +1,24 @@
 $(function(){ 
   function buildHTML(message){
-   
     var img = (message.image.url == null)? `</p>`:`<img src ="${ message.image.url }"></p>`;
-    var html = `<div class="message" data-message-id=${message.id}>
+    var html = `<div class="message" data-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
-                      ${message.user_name}
+                    ${message.user_name}
                     </div>
                     <div class="upper-message__date">
-                      ${message.date}
+                    ${message.created_at}
                     </div>
                   </div>
                   <div class="lower-message">
                     <p class="lower-message__content">
-                    ${img.content}
+                    ${message.content}
+                    </p>
+                    <p class="lower-message__image" >
+                    ${ img }
                     </p>
                   </div>
-                  <div>
-                  ${image}
-                  </div>
-              `
+                </div>`
     return html;
   }
  
@@ -42,6 +41,7 @@ $(function(){
       $('.messages').append(html);
       $('.new_message')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      $('.form__submit').prop('disabled', false);
     })
 
     .fail(function(){
